@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.launchcode.models.Job;
 
 import javax.validation.Valid;
 
@@ -24,6 +25,8 @@ public class JobController {
     public String index(Model model, int id) {
 
         // TODO #1 - get the Job with the given ID and pass it into the view
+        Job aspecificJob = jobData.findById(id);
+        model.addAttribute("specificJob", aspecificJob);
 
         return "job-detail";
     }
